@@ -7,7 +7,6 @@ import math
 # from os.path import splitext
 
 # http://www.realtimerendering.com/raytracing/Ray%20Tracing%20in%20a%20Weekend.pdf
-# C:\FCN\04 - Research\41 - PBR\Render_in_a_weekend
 # https://www.python-course.eu/python3_magic_methods.php
 
 def color(r):
