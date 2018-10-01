@@ -31,13 +31,15 @@ def hit_sphere(center, radius, r):
         return (-b - math.sqrt(discriminat)) / (2.0 * a)
 
 def render(width=200, height=100):
+    hor_size = 4.0
+    ver_size = hor_size * 0.5
     line = []
     frame  = []
     nx = width
     ny = height
-    lower_left_corner = vec3(-2.0, -1.0, -1.0)
-    horizontal = vec3(4.0, 0.0, 0.0)
-    vertical = vec3(0.0, 2.0, 0.0)
+    lower_left_corner = vec3(-(hor_size / 2.0), -(ver_size / 2.0), -1.0)
+    horizontal = vec3(hor_size, 0.0, 0.0)
+    vertical = vec3(0.0, ver_size, 0.0)
     origin = vec3(0.0, 0.0, 0.0)
 
     for j in range(ny-1, -1, -1):
@@ -49,10 +51,7 @@ def render(width=200, height=100):
             col = color(r)
             pix = vec3(int(255.99 * col.r), int(255.99 * col.g), int(255.99 * col.b))
             line.append([pix.x, pix.y, pix.z])
-        frame.append(line.copy())#[:])
-        # pd = (100-(100*(j/ny)))
-        # if ((pd % 10) == 0):
-        # print(f'{pd}%')
+        frame.append(line.copy())
     return frame
 
 
