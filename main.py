@@ -50,8 +50,8 @@ def render(width=200, height=100):
             col = color(r)
             pix = vec3(int(255.99 * col.r), int(255.99 * col.g), int(255.99 * col.b))
             line.append([pix.x, pix.y, pix.z])
-        frame.append(line[:])
-        pd = (100-(100*(j/ny)))
+        frame.append(line.copy())#[:])
+        # pd = (100-(100*(j/ny)))
         # if ((pd % 10) == 0):
         # print(f'{pd}%')
     return frame
@@ -72,10 +72,4 @@ if __name__ == '__main__':
     fname = 'output.ppm'
     run_render(file_name=fname, width=200, height=100, scale=4.0, binary=True)
 
-    # im = Image.open(fname)
-    # im.save(os.path.splitext(fname)[0]+'.png')
-    # os.remove(fname)
-    # print(f'Run time: {time() - tinit}s')
-    # print(os.path.splitext(fname))
-    # im.show()
 
