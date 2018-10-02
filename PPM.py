@@ -40,7 +40,7 @@ class ppm:
         if self.file_handle:
             self.file_handle.close()
 
-    def saveas(self, file_format):
+    def saveas(self, file_format, delete_source=True):
         supported_types = ['png']
         if file_format.lower() in supported_types:
             self.close()
@@ -48,7 +48,8 @@ class ppm:
             png_filename = os.path.splitext(self.filename)[0]+'.'+supported_types[supported_types.index(file_format)]
             im.save(png_filename)
             print(f'File saved as {png_filename}')
-            os.remove(self.filename)
+            if delete_source:
+                os.remove(self.filename)
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.file_handle:
